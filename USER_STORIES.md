@@ -1,4 +1,4 @@
-User Stories for Freedom Registry for Command Line
+User Stories for Freedom Registry CLI
 ==================================================
 
 <hr />

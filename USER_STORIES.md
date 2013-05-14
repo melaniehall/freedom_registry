@@ -3,9 +3,9 @@ User Stories for Freedom Registry CLI
 
 <hr />
 
-As a nonprofit working in prevention of human trafficking<br />
+As a non-profit working in prevention of human trafficking<br />
 In order to collaborate with other NPOs in my state for an event<br />
-I want to look-up all the similar nonprofits in my state.
+I want to look-up a list of similar non-profits in my state.
 
   - User runs `find state <current state>`
   - User is given a list of the ID#s, Names, City/State Locations, and Websites (if applicable) of all the NPOs in the User's state.

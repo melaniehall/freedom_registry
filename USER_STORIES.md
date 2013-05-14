@@ -1,7 +1,5 @@
 User Stories for Freedom Registry CLI
-==================================================
-
-<hr />
+=====================================
 
 As a non-profit working in prevention of human trafficking<br />
 In order to collaborate with other NPOs in my state for an event<br />

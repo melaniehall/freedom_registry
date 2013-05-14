@@ -29,7 +29,7 @@ Getting Started:
     3. find state "state"..............(Search by state)
     4. find keyword "keyword"..........(Search by keyword)
 
-  > ls all
+  > ls all <br/>
   Returns a list of all the organizations in the Freedom Registry 2.0 (paginated for easy searching): list includes id#, name, city/state, and website (if applicable)
 
   > find name "name"

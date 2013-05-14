@@ -13,10 +13,9 @@ This project is currently in the planning stages.
 
 Features
 --------
-- Search (filters: by state, if they accept volunteers,
-- List Content
-- E-mail Contact Person
-- Twitter Feed integration
+- List all organizations
+- Search organizations by state, by name, by keyword
+- List profiles for individual organizations
 
 Usage Instructions
 ------------------
@@ -27,7 +26,7 @@ Getting Started:
 
     1. ls all..........................(List all)
     2. find name "name goes here"......(Search by name)
-    3. find state "state".................(Search by state)
+    3. find state "state"..............(Search by state)
     4. find keyword "keyword"..........(Search by keyword)
 
   > ls all

@@ -5,7 +5,7 @@ NSS-freedom_registry
 Purpose
 -------
 
-The goal of this project is to create a command line tool that integrates with the [Freedom Registry](http://www.freedomregistry.org/), allowing users to quickly search through the registry and utilize the information that is relevent to them.
+The goal of this project is to create a command line tool that integrates with the <a href="http://www.freedomregistry.org/" target="_blank">Freedom Registry</a>, allowing users to quickly search through the registry and utilize the information that is relevent to them.
 
 Project Status / TODO
 ---------------------

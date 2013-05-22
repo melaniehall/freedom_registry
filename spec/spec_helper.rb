@@ -1,9 +1,30 @@
 require "rubygems"
 require "bundler/setup"
 require "active_record"
+require 'rspec'
+require 'database_cleaner'
+require './models/organization'
 
-project_root = File.dirname(File.absolute_path(__FILE__))
-Dir.glob(project_root + "/models/*.rb").each{|f| require f}
+def establish_connection
+  connection_details = YAML::load(File.open('config/database.yml'))
+  ActiveRecord::Base.establish_connection(connection_details['test'])
+end
 
-connection_details = YAML::load(File.open('config/database.yml'))
-ActiveRecord::Base.establish_connection(connection_details)
+def migrate_test_database
+  ActiveRecord::Migrator.migrate("db/migrate/")
+end
+
+RSpec.configure do |c|
+  c.before(:suite) { establish_connection }
+  # c.before(:suite) { migrate_test_database }
+  # c.before(:suite) { DatabaseCleaner.strategy = :transaction }
+  # c.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
+
+  c.before(:each) do
+    # DatabaseCleaner.start
+  end
+
+  c.after(:each) do
+    # DatabaseCleaner.clean
+  end
+end

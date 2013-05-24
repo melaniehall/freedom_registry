@@ -91,32 +91,69 @@ describe Organization, ".by_keyword" do
   end
 end
 
-describe Organization, ".list_all" do
-  subject { Organization.list_all }
+
+describe Organization, ".format_organization_for_list_view" do
+  subject { Organization.format_organization_for_list_view(organization) }
+  let!(:organization) {
+      Organization.create! do |org|
+        org.name = "TN_Org1"
+        org.mailing_city = "City"
+        org.mailing_state = "TN"
+      end
+  }
+
+    it "returns properly formatted organizations" do
+      subject.should == (<<-OUTPUT
+1      |     TN_Org1                                                            | LOCATION: City, TN
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+OUTPUT
+        )
+    end
+end
+
+describe Organization, ".format_organizations_for_output" do
+  subject { Organization.format_organizations_for_output(organizations) }
+  let!(:organizations) {Organization.where(mailing_state: state_to_find)}
 
   let!(:organization_1) {
       Organization.create! do |org|
-        org.name = "Org1"
+        org.name = "TN_Org1"
         org.mailing_city = "City"
-        org.mailing_state = "FL"
+        org.mailing_state = "TN"
       end
   }
+
   let!(:organization_2) {
-    Organization.create! do |org|
-      org.name = "Org2"
-      org.mailing_city = "City"
-      org.mailing_state = "FL"
-    end
+      Organization.create! do |org|
+        org.name = "TN_Org2"
+        org.mailing_city = "City"
+        org.mailing_state = "TN"
+      end
   }
+
   let!(:organization_3) {
     Organization.create! do |org|
-      org.name = "Org3"
+      org.name = "IL_Org1"
       org.mailing_city = "City"
       org.mailing_state = "FL"
     end
   }
 
-    it "returns all organizations in registry" do
-      subject.should include(organization_1.name, organization_2.name, organization_3.name)
+  let!(:state_to_find) { "TN" }
+
+    it "returns properly formatted organizations" do
+      subject.should == (<<-OUTPUT
+1      |     TN_Org1                                                            | LOCATION: City, TN
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+2      |     TN_Org2                                                            | LOCATION: City, TN
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+OUTPUT
+        )
     end
 end

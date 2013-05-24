@@ -21,7 +21,7 @@ class FreedomRegistry
   NO_POSITION = "no position prompt goes here"
   THANK_YOU_MESSAGE = "THANK YOU FOR USING FREEDOM REGISTRY CLI."
   NO_RESULTS = "\nThere were no results for your search. Please try again\n"
-  INSTRUCTIONS = "Press q at any time to return to main screen\n"
+
 
   def self.formatter
     Formatter
@@ -36,10 +36,15 @@ class FreedomRegistry
     puts prompt_user_for_selection(current_position)
     selection = gets.chomp
     if selection.match(/^find state\s/)
-      controller.find_by_state(selection)
+      output = controller.find_by_state(selection)
     else
       puts output_user_selection(selection)
     end
+    #OUTPUT
+    formatter.clear_screen
+    formatter.format_output(output)
+
+    #LOOP
     position = find_current_position(selection)
     prompt_user_for_input(position)
   end
@@ -124,7 +129,7 @@ class FreedomRegistry
     end
 
     output << NO_RESULTS if output == ""
-    output.prepend(INSTRUCTIONS + "\n")
+    output.prepend(Formatter::INSTRUCTIONS + "\n")
     IO.popen("less", "w") { |f| f.puts output } unless output == ""
 
   end

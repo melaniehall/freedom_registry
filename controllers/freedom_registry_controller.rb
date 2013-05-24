@@ -2,6 +2,7 @@ require './bootstrap_ar'
 require 'io/console'
 require './models/organization'
 require './lib/string'
+require './freedom_registry'
 
 
 #!/usr/bin/env ruby
@@ -17,9 +18,14 @@ class FreedomRegistryController
   def find_by_state selection
     length = selection.length
     state_to_find = selection.slice(11..length)
-    organizations = Organization.by_state(state_to_find)
-    output = Organization.format_organizations_for_output(organizations)
-    Formatter.format_output(output)
+    if state_to_find != ""
+      organizations = Organization.by_state(state_to_find)
+      output = Organization.format_organizations_for_output(organizations)
+      # Formatter.format_output(output)
+    else
+    puts output = FreedomRegistry::NO_RESULTS
+    end
+    output
   end
 
   def self.prompt_user_for_input(current_position= "welcome")

@@ -27,4 +27,22 @@ describe Formatter, ".add_hr" do
   end
 end
 
+describe Formatter, ".format_output" do
+  subject { Formatter.format_output(output) }
 
+  context "when output is empty" do
+    let!(:output) { "" }
+
+    it "returns nil-- less returns nil" do
+      expect(subject).to eql(nil)
+    end
+  end
+
+  context "when output has value" do
+    let!(:output) { "Hello there" }
+
+    it "prints the output with LESS command" do
+      expect(subject).to eql(IO.popen("less", "w") { |f| f.puts output })
+    end
+  end
+end

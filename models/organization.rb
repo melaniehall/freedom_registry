@@ -36,6 +36,7 @@ class Organization < ActiveRecord::Base
     output
   end
 
+
   def self.format_organizations_for_output organizations
     output = ""
     organizations.each do |organization|

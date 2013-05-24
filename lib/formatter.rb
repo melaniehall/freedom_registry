@@ -1,4 +1,6 @@
 module Formatter
+  INSTRUCTIONS = "Press q at any time to return to main screen\n"
+  NO_RESULTS = "\nThere were no results for your search. Please try again\n"
 
   def self.clear_screen
     puts `clear`
@@ -29,9 +31,12 @@ module Formatter
   end
 
   def self.format_output output
-    output << NO_RESULTS if output == ""
-    output.prepend(FreedomRegistry::INSTRUCTIONS + "\n")
-    IO.popen("less", "w") { |f| f.puts output } unless output == ""
+    if output != nil
+      output.prepend(INSTRUCTIONS + "\n")
+      IO.popen("less", "w") { |f| f.puts output }
+    end
+    # exec 'less output'
+    output = NO_RESULTS
   end
 
 end

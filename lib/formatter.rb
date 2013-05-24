@@ -28,4 +28,10 @@ module Formatter
     output << "\n\n"
   end
 
+  def self.format_output output
+    output << NO_RESULTS if output == ""
+    output.prepend(FreedomRegistry::INSTRUCTIONS + "\n")
+    IO.popen("less", "w") { |f| f.puts output } unless output == ""
+  end
+
 end

@@ -16,15 +16,15 @@ end
 
 RSpec.configure do |c|
   c.before(:suite) { establish_connection }
-  # c.before(:suite) { migrate_test_database }
-  # c.before(:suite) { DatabaseCleaner.strategy = :transaction }
-  # c.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
+  c.before(:suite) { migrate_test_database }
+  c.before(:suite) { DatabaseCleaner.strategy = :transaction }
+  c.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
 
   c.before(:each) do
-    # DatabaseCleaner.start
+    DatabaseCleaner.start
   end
 
   c.after(:each) do
-    # DatabaseCleaner.clean
+    DatabaseCleaner.clean
   end
 end

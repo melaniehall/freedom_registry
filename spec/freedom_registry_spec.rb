@@ -6,16 +6,29 @@ describe FreedomRegistry, ".output_user_selection" do
 
   context "'find state' is the selection" do
     subject { FreedomRegistry.output_user_selection("find state ME")}
-    let(:expected_output) {<<-OUTPUT
-145  | Sexual Assault Support Services of Midcoast Maine  | LOCATION: Brunswick, ME
 
-826  | Sexual Assault Support Services of Midcoast Maine  | LOCATION: Brunswick, ME
+    context "no entries exist for ME" do
+      it "should return a blank list" do
+        subject.should be_nil
+      end
+    end
 
+    context "entries exist for ME" do
+      let!(:organization) {
+        Organization.create! do |org|
+          org.name = "My Org"
+          org.mailing_city = "City"
+          org.mailing_state = "ME"
+        end
+      }
+      let(:expected_output) {<<-OUTPUT
+1  | My Org  | LOCATION: City, ME
 OUTPUT
-}
+      }
 
-    it "should print the organizations that match the selected state" do
-      subject.should eql expected_output
+      it "should return a formatted version of the organization" do
+        subject.should eql expected_output
+      end
     end
   end
 

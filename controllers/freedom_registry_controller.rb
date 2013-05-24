@@ -2,7 +2,6 @@ require './bootstrap_ar'
 require 'io/console'
 require './models/organization'
 require './lib/string'
-require './freedom_registry'
 
 
 #!/usr/bin/env ruby
@@ -20,6 +19,19 @@ class FreedomRegistryController
     state_to_find = selection.slice(11..length)
     if state_to_find != ""
       organizations = Organization.by_state(state_to_find)
+      output = Organization.format_organizations_for_output(organizations)
+      # Formatter.format_output(output)
+    else
+    puts output = FreedomRegistry::NO_RESULTS
+    end
+    output
+  end
+
+  def find_by_name selection
+    length = selection.length
+    name_to_find = selection.slice(10..length)
+    if name_to_find != ""
+      organizations = Organization.by_name(name_to_find)
       output = Organization.format_organizations_for_output(organizations)
       # Formatter.format_output(output)
     else

@@ -37,6 +37,8 @@ class FreedomRegistry
     selection = gets.chomp
     if selection.match(/^find state\s/)
       output = controller.find_by_state(selection)
+    elsif selection.match(/^find name\s/)
+      output = controller.find_by_name(selection)
     else
       puts output_user_selection(selection)
     end
@@ -95,11 +97,6 @@ class FreedomRegistry
     length = selection.length
     output = ""
     case
-      when selection.match(/^find name\s/)
-        name_to_find = selection.slice(10..length)
-        organizations = Organization.by_name(name_to_find)
-        output << Organization.format_organizations_for_output(organizations)
-
       when selection.match(/^find keyword\s/)
         keyword_to_find = selection.slice(13..length)
         organizations = Organization.by_keyword(keyword_to_find)

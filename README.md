@@ -9,7 +9,9 @@ The goal of this project is to create a command line tool that integrates with t
 
 Project Status / TODO
 ---------------------
-This project is currently in the planning stages.
+Main implementation complete.
+
+Currently fixing "list all" bug, refactoring, and beginning Phase 2. 
 
 Features
 --------

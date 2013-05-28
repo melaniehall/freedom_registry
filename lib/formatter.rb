@@ -1,7 +1,7 @@
 module Formatter
   INSTRUCTIONS = "Press q at any time to return to main screen\n"
-  NO_RESULTS = "\nThere were no results for your search. Please try again\n"
-  EXIT_MESSAGE = "THANK YOU FOR USING THE FREEDOM REGISTRY"
+  NO_RESULTS = "There were no results for your search. Please try again\n\n"
+  EXIT_MESSAGE = "THANK YOU FOR USING THE FREEDOM REGISTRY\nFor more information, please visit freedomregistry.org"
 
   def self.clear_screen
     puts `clear`
@@ -59,17 +59,7 @@ module Formatter
     output.dark_grey
   end
 
-  def self.output(output)
-    if output.match(/^exit/)
-      puts EXIT_MESSAGE.green
-    elsif output != "" && output != nil
-      output = INSTRUCTIONS + "\n" + output
-      Signal.trap("PIPE", "EXIT")
-      IO.popen("less -R", "w") { |f| f.puts output }
-    else
-      puts output = "No results, please try again"
-    end
-  end
+#Output Formatting Methods
 
   def self.organizations_for_output(organizations)
     if organizations == nil
@@ -84,6 +74,43 @@ module Formatter
     end
     output
   end
+
+  def self.organization_for_list_view(organization, width)
+    output = "#{id(organization.id)} | %s | #{location(organization, 25)}"
+    remaining_space = (width - output.length) - 2
+    output.sub(/%s/, name(organization, remaining_space))
+  end
+
+  def self.organization_for_profile_view(organization)
+    if organization != nil
+      output = "#{organization.name.upcase} | #{location(organization, 25)}"
+
+      output << mission_statement(organization)
+      output << website(organization)
+      output << "Contact:"
+      output << contact_name(organization)
+      output << contact_phone(organization)
+      output << contact_email(organization)
+      output << "\n\n"
+    else
+      output= "You've entered an incorrect organization id#\n"
+    end
+    output.yellow
+  end
+
+  def self.output(output)
+    if output.match(/^exit/)
+      puts EXIT_MESSAGE.green
+    elsif output != "" && output != nil
+      output = INSTRUCTIONS + "\n" + output
+      Signal.trap("PIPE", "EXIT")
+      IO.popen("less -R", "w") { |f| f.puts output }
+    else
+      puts output = NO_RESULTS
+    end
+  end
+
+  #Organization Attribute Validations
 
   def self.mission_statement(organization)
     mission_statement = ""
@@ -123,57 +150,6 @@ module Formatter
       website = "\n" + organization.website
     end
     website
-  end
-
-  # def self.profile_item(organization_item)
-  #   formatted_item = ""
-  #   if organization_item != NULL && organization_item != "" && organization_item.capitalize != "PENDING"
-  #     formatted_item << "\n" + organization_item
-  #   end
-  #   formatted_item
-  # end
-
-  def self.organization_for_list_view(organization, width)
-    output = "#{id(organization.id)} | %s | #{location(organization, 25)}"
-    remaining_space = (width - output.length) - 2
-    output.sub(/%s/, name(organization, remaining_space))
-  end
-
-  def self.organization_for_profile_view(organization)
-    if organization != nil
-      output = "#{organization.name.upcase} | #{location(organization, 25)}"
-
-      output << mission_statement(organization)
-      output << website(organization)
-      output << "Contact:"
-      output << contact_name(organization)
-      output << contact_phone(organization)
-      output << contact_email(organization)
-      # if organization.mission_statement != "NULL" && organization.mission_statement != ""
-      #   output << "\nMission: #{organization.mission_statement}\n"
-      #   output << add_hr
-      # end
-
-      # if organization.website != "NULL" && organization.website != ""
-      #   output << "Website: #{organization.website}\n"
-      # end
-
-      # if organization.contact_name != "NULL" && organization.contact_name != "" && organization.contact_name !="PENDING"
-      #   output << "Contact: #{organization.contact_name}\n"
-      # end
-
-      # if organization.contact_email != "NULL" && organization.contact_email != ""
-      #   output << "#{organization.contact_email} | "
-      # end
-
-      # if organization.contact_phone != "NULL" && organization.contact_phone != ""
-      #   output << "#{organization.contact_phone}\n"
-      # end
-
-    else
-      output= "You've entered an incorrect organization id#"
-    end
-    output.yellow
   end
 
 end

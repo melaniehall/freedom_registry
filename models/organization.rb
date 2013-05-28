@@ -6,7 +6,7 @@ require './lib/formatter'
 
 class Organization < ActiveRecord::Base
   validates :name, :uniqueness => true
-  validates :name, :mailing_city, :mailing_state, :mission_statement, :presence => true
+  # validates :name, :mailing_city, :mailing_state, :mission_statement, :presence => true
 
   def self.by_state state_to_find
     Organization.where(mailing_state: state_to_find).order("name ASC")

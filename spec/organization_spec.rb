@@ -12,14 +12,14 @@ describe Organization, ".by_state" do
   context "entries exist" do
     let!(:maine_organization) {
       Organization.create! do |org|
-        org.name = "My Org"
+        org.name = "Org"
         org.mailing_city = "City"
         org.mailing_state = "ME"
       end
     }
     let!(:florida_organization) {
       Organization.create! do |org|
-        org.name = "My Org"
+        org.name = "Org2"
         org.mailing_city = "City"
         org.mailing_state = "FL"
       end
@@ -91,69 +91,3 @@ describe Organization, ".by_keyword" do
   end
 end
 
-
-describe Organization, ".format_organization_for_list_view" do
-  subject { Organization.format_organization_for_list_view(organization) }
-  let!(:organization) {
-      Organization.create! do |org|
-        org.name = "TN_Org1"
-        org.mailing_city = "City"
-        org.mailing_state = "TN"
-      end
-  }
-
-    it "returns properly formatted organizations" do
-      subject.should == (<<-OUTPUT
-1      |     TN_Org1                                                            | LOCATION: City, TN
-
--------------------------------------------------------------------------------------------------------------------------------------------
-
-OUTPUT
-        )
-    end
-end
-
-describe Organization, ".format_organizations_for_output" do
-  subject { Organization.format_organizations_for_output(organizations) }
-  let!(:organizations) {Organization.where(mailing_state: state_to_find)}
-
-  let!(:organization_1) {
-      Organization.create! do |org|
-        org.name = "TN_Org1"
-        org.mailing_city = "City"
-        org.mailing_state = "TN"
-      end
-  }
-
-  let!(:organization_2) {
-      Organization.create! do |org|
-        org.name = "TN_Org2"
-        org.mailing_city = "City"
-        org.mailing_state = "TN"
-      end
-  }
-
-  let!(:organization_3) {
-    Organization.create! do |org|
-      org.name = "IL_Org1"
-      org.mailing_city = "City"
-      org.mailing_state = "FL"
-    end
-  }
-
-  let!(:state_to_find) { "TN" }
-
-    it "returns properly formatted organizations" do
-      subject.should == (<<-OUTPUT
-1      |     TN_Org1                                                            | LOCATION: City, TN
-
--------------------------------------------------------------------------------------------------------------------------------------------
-
-2      |     TN_Org2                                                            | LOCATION: City, TN
-
--------------------------------------------------------------------------------------------------------------------------------------------
-
-OUTPUT
-        )
-    end
-end

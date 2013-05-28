@@ -24,54 +24,41 @@ Planned usage is as follows:
 Getting Started:
   On load of freedom_registry, users will see a welcome screen with a brief into to the Freedom Registry and a list of commands to get started:
 
-    1. ls all..........................(List all)
-    2. find name "name goes here"......(Search by name)
-    3. find state "state"..............(Search by state)
-    4. find keyword "keyword"..........(Search by keyword)
+    1. list all..........................(List all)
+    2. by name "name goes here"..........(Search by name)
+    3. by state "state"..................(Search by state)
+    4. by keyword "keyword"..............(Search by keyword)
 
-  <strong>ls all </strong><br/>
+  <strong>list all </strong><br/>
   Returns a list of all the organizations in the Freedom Registry 2.0 (paginated for easy searching): list includes id#, name, city/state, and website (if applicable)
 
-  <strong> find name "name" </strong><br/>
+  <strong> by name "name" </strong><br/>
   Returns a list of all the organizations that contain the name entered.
 
-  <strong>find state "state"</strong><br/>
+  <strong>by state "state"</strong><br/>
   Returns a list of all the organizations in state indicated.<br/>
-  (user can search for multiple states, separated by commas: ie: "find state "TN, GA, AL")
 
-  <strong> find keyword "keyword"</strong><br/>
+  <strong> by keyword "keyword"</strong><br/>
   Returns a list of all the organizations that match keyword input.
 
   <strong>To see more information </strong>on an organization listed, a user can enter the id number of the organization:
-  > ls 312 <br/>
-  This will return a formatted output of the name, location, city/state, website, mission statement, wehther or not the organization accepts volunteers, twitter handle, and primary contact info.
+  > view 312 <br/>
+  This will return a formatted output of the name, location, website, mission statement, and primary contact info.
 
   <strong>If there are no matches </strong> (or if user enters an invalid input), users will be given the option to:
   1. Start a new Search (new)
-  2. Go back a Screen (cd ..)
-  3. Quit (quit)
-
-
-Demo
-----
-
-Coming Soon.
+  2. Exit
 
 
 Known Bugs
 ----------
 
-Also Coming Soon.
+List all feature terminates the program. 
 
 Author
 ------
 
 Melanie Hall
-
-Changelog
----------
-
-5/13/2013 - Created initial repository with README
 
 <hr/>
 <strong>Future Features (Phase 2):</strong>
@@ -79,7 +66,7 @@ Changelog
 In an organization's profile view, a user will have the option to:<br/>
       1) open the organization's website in their browser, <br/>
       2) send an e-mail message to the contact person directly <br/>
-      3)Follow the organization on Twitter (or add the org to a UserList)
+      3) Follow the organization on Twitter (or add the org to a UserList)
 
 - Tag Your Favorites <br/>
 add "id#" <br/>

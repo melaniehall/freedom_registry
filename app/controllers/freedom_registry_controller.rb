@@ -1,6 +1,6 @@
 require './bootstrap_ar'
 require 'io/console'
-require './models/organization'
+require './app/models/organization'
 require './lib/string'
 require './lib/formatter'
 

@@ -1,6 +1,6 @@
 require './freedom_registry'
 require_relative 'spec_helper.rb'
-require './models/organization'
+require './app/models/organization'
 
 describe FreedomRegistry, "#find_current_position" do
 

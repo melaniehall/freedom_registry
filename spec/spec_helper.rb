@@ -3,7 +3,7 @@ require "bundler/setup"
 require "active_record"
 require 'rspec'
 require 'database_cleaner'
-require './models/organization'
+require './app/models/organization'
 
 def establish_connection
   connection_details = YAML::load(File.open('config/database.yml'))

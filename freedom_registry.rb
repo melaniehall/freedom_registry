@@ -1,8 +1,8 @@
 require_relative 'bootstrap_ar'
 require 'io/console'
-require './models/organization'
+require './app/models/organization'
 require './lib/string'
-require './controllers/freedom_registry_controller.rb'
+require './app/controllers/freedom_registry_controller.rb'
 require './lib/formatter'
 
 #!/usr/bin/env ruby

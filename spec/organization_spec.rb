@@ -1,4 +1,4 @@
-require './models/organization'
+require './app/models/organization'
 require_relative 'spec_helper.rb'
 
 describe Organization, ".by_state" do

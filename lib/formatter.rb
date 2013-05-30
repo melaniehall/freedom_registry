@@ -33,15 +33,15 @@ module Formatter
     end
   end
 
-  def self.location_header(column_name, width)
+  def self.column_header(column_name, width)
     column_name.ljust(width)
   end
 
   def self.table_header(width)
-    header = "#{id("ID#")} | %s | #{location_header("LOCATION", 24)}\n"
+    header = "#{id("ID#")} | %s | #{column_header("LOCATION", 24)}\n"
     remaining_space = (width - header.length) - 2
     header.sub!(/%s/, name_header("ORGANIZATION", remaining_space))
-    header << add_hr
+    header << add_hr(width)
   end
 
   def self.terminal_width
@@ -52,7 +52,7 @@ module Formatter
     terminal_width = `tput lines`.to_i
   end
 
-  def self.add_hr
+  def self.add_hr(width)
     line = "-"
     output = line * terminal_width
     output << "\n"
@@ -68,7 +68,7 @@ module Formatter
       output = ""
       organizations.each do |organization|
         if !organization.name.nil?
-          output << organization_for_list_view(organization, terminal_width) + "\n" + add_hr
+          output << organization_for_list_view(organization, terminal_width) + "\n" + add_hr(terminal_width)
         end
       end
     end
@@ -115,7 +115,7 @@ module Formatter
   def self.mission_statement(organization)
     mission_statement = ""
     if organization.mission_statement != "NULL" && organization.mission_statement != "" && organization.mission_statement.capitalize != "PENDING"
-      mission_statement = "\nMission: " + organization.mission_statement + "\n" + add_hr
+      mission_statement = "\nMission: " + organization.mission_statement + "\n" + add_hr(terminal_width)
     end
     mission_statement
   end

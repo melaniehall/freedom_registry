@@ -11,7 +11,8 @@ Project Status / TODO
 ---------------------
 [![Build Status](https://travis-ci.org/melaniehall/freedom_registry.png)](https://travis-ci.org/melaniehall/freedom_registry)
 
-Currently fixing "list all" bug, refactoring, and beginning Phase 2.
+- Main features working.
+- Currently fixing "list all" bug, refactoring, and beginning Phase 2.
 
 Features
 --------

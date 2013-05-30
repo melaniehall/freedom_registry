@@ -9,8 +9,6 @@ The goal of this project is to create a command line tool that integrates with t
 
 Project Status / TODO
 ---------------------
-[![Build Status](https://travis-ci.org/melaniehall/freedom_registry.png)](https://travis-ci.org/melaniehall/freedom_registry)
-
 Main implementation complete.
 
 Currently fixing "list all" bug, refactoring, and beginning Phase 2. 

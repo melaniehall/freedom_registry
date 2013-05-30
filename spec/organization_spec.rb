@@ -78,6 +78,14 @@ describe Organization, ".by_keyword" do
         org.mission_statement = "Care and prevention"
       end
     }
+
+    let!(:matching_organization2) {
+      Organization.create! do |org|
+        org.name = "My Org2"
+        org.mission_statement = "Care and prevention is important"
+      end
+    }
+
     let!(:ignored_organization) {
       Organization.create! do |org|
         org.name = "Name"
@@ -86,7 +94,7 @@ describe Organization, ".by_keyword" do
     }
 
     it "returns only the organizations with a matching keyword" do
-      subject.should == [matching_organization]
+      subject.should == [matching_organization, matching_organization2]
     end
   end
 end

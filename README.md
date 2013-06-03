@@ -11,11 +11,10 @@ Project Status / TODO
 ---------------------
 [![Build Status](https://travis-ci.org/melaniehall/freedom_registry.png)](https://travis-ci.org/melaniehall/freedom_registry)
 
-<a href="https://codeclimate.com/github/melaniehall/freedom_registry"><img src="https://codeclimate.com/github/melaniehall/freedom_registry.png" /></a>
-
-
 - Main features working.
 - Currently fixing "list all" bug, refactoring, and beginning Phase 2.
+
+<a href="https://codeclimate.com/github/melaniehall/freedom_registry"><img src="https://codeclimate.com/github/melaniehall/freedom_registry.png" /></a>
 
 Features
 --------

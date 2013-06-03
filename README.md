@@ -9,12 +9,15 @@ The goal of this project is to create a command line tool that integrates with t
 
 Project Status / TODO
 ---------------------
-[![Build Status](https://travis-ci.org/melaniehall/freedom_registry.png)](https://travis-ci.org/melaniehall/freedom_registry)
+[![Build Status](https://travis-ci.org/melaniehall/freedom_registry.png?branch=master)](https://travis-ci.org/melaniehall/freedom_registry)
+
+
+<a href="https://codeclimate.com/github/melaniehall/freedom_registry"><img src="https://codeclimate.com/github/melaniehall/freedom_registry.png" /></a>
 
 - Main features working.
 - Currently fixing "list all" bug, refactoring, and beginning Phase 2.
 
-<a href="https://codeclimate.com/github/melaniehall/freedom_registry"><img src="https://codeclimate.com/github/melaniehall/freedom_registry.png" /></a>
+
 
 Features
 --------

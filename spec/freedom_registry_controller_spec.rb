@@ -53,7 +53,7 @@ describe FreedomRegistryController, ".find_by" do
     end
   end
 
-   context "state search-term: has no matching entries" do
+  context "state search-term: has no matching entries" do
     let!(:matching_organization) {
       Organization.create! do |org|
         org.name = "My Org1"
@@ -107,7 +107,7 @@ describe FreedomRegistryController, ".find_by" do
     end
   end
 
-    context "keyword: search-term is empty" do
+  context "keyword: search-term is empty" do
     let!(:selection) { "by keyword " }
 
     it "returns an empty string by default" do

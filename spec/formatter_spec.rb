@@ -113,8 +113,8 @@ describe Formatter, ".organizations_for_profile_view" do
   end
 end
 
-describe Formatter, ".contact_name" do
-  subject { Formatter.contact_name(organization)}
+describe Formatter, ".contact_info" do
+  subject { Formatter.contact_info(organization, "name")}
 
   context "when the organization is not empty" do
     let!(:organization) {
@@ -134,8 +134,8 @@ describe Formatter, ".contact_name" do
   end
 end
 
-describe Formatter, ".contact_phone" do
-  subject { Formatter.contact_phone(organization)}
+describe Formatter, ".contact_info" do
+  subject { Formatter.contact_info(organization, "phone")}
 
   context "when it is NULL" do
     let!(:organization) {

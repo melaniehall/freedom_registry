@@ -88,8 +88,8 @@ module Formatter
       output << mission_statement(organization)
       output << website(organization)
       output << "Contact:"
-      output << contact_name(organization)
-      output << contact_phone(organization)
+      output << contact_info(organization, "name")
+      output << contact_info(organization, "phone")
       output << contact_email(organization)
       output << "\n\n"
     else
@@ -120,20 +120,12 @@ module Formatter
     mission_statement
   end
 
-  def self.contact_name(organization)
-    contact_name = ""
-    if organization.contact_name != "NULL" && organization.contact_name != "" && !organization.contact_name.match(/^Pen/)
-      contact_name = "\n" + organization.contact_name
+  def self.contact_info(organization, type)
+    contact_info = ""
+    if organization.send("contact_#{type}") != "NULL" && organization.send("contact_#{type}") != "" && organization.send("contact_#{type}").capitalize != "PENDING"
+      contact_info = "\n" + organization.send("contact_#{type}")
     end
-    contact_name
-  end
-
-  def self.contact_phone(organization)
-    contact_phone = ""
-    if organization.contact_phone != "NULL" && organization.contact_phone != "" && organization.contact_phone.capitalize != "PENDING"
-      contact_phone = "\n" + organization.contact_phone
-    end
-    contact_phone
+    contact_info
   end
 
   def self.contact_email(organization)

@@ -13,45 +13,22 @@ class FreedomRegistryController
     @prompt
   end
 
-  def find_by_state(selection)
-    length = selection.length
-    state_to_find = selection.slice(9..length)
-    if state_to_find != ""
-      organizations = Organization.by_state(state_to_find)
-      output = Formatter.organizations_for_output(organizations)
-    else
-      puts output = FreedomRegistry::NO_RESULTS
-    end
-    output
-  end
+  def find_by (selection)
 
-  def find_by_name(selection)
-    length = selection.length
-    name_to_find = selection.slice(8..length)
-    if name_to_find != ""
-      organizations = Organization.by_name(name_to_find)
-      output = Formatter.organizations_for_output(organizations)
-    else
+    selection = selection.split()
+    length = selection.size
+    search_type = selection[1]
+    search_term = selection[2..length].join("").to_s
+    if "#{search_term}" == ""
       puts output = FreedomRegistry::NO_RESULTS
     end
-    output
-  end
-
-  def find_by_keyword(selection)
-    length = selection.length
-    keyword_to_find = selection.slice(11..length)
-    if keyword_to_find != ""
-      organizations = Organization.by_keyword(keyword_to_find)
-      output = Formatter.organizations_for_output(organizations)
-    else
-      puts output = FreedomRegistry::NO_RESULTS
-    end
-    output
+    organizations = Organization.send("by_#{search_type}", "#{search_term}")
+    Formatter.organizations_for_output(organizations)
   end
 
   def list_all
     organizations = Organization.order("name ASC")
-    output = Formatter.organizations_for_output(organizations)
+    Formatter.organizations_for_output(organizations)
   end
 
   def view_profile(selection)

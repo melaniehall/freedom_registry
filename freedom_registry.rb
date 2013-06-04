@@ -126,11 +126,11 @@ if __FILE__ == $0
   while input = freedom_registry.prompt_user_for_input do
 
     if input.match(/^by state\s/)
-      output = controller.find_by_state(input)
+      output = controller.find_by(input)
     elsif input.match(/^by name\s/)
-      output = controller.find_by_name(input)
+      output = controller.find_by(input)
     elsif input.match(/^by keyword\s/)
-      output = controller.find_by_keyword(input)
+      output = controller.find_by(input)
     elsif input.match(/^list all/)
       output = controller.list_all
     elsif input.match(/^view\s/)

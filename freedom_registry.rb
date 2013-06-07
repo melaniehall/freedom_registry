@@ -13,27 +13,27 @@ class FreedomRegistry
 
   WELCOME_MESSAGE = "\nWelcome to the Freedom Registry\n\n" +
   "Search through organizations in the registry using the commands below:\n" +
-   "  by name 'name goes here'........(Search by name, ie: 'find name Abolition International')\n" +
-   "  by state 'state'................(Search by state abbreviation, ie: 'find state TN')\n" +
-   "  by keyword 'keyword'............(Search by keyword, ie: 'find keyword prevention')\n" +
+   "  by name 'name goes here'........(Search by name, ie: 'by name Abolition International')\n" +
+   "  by state 'state'................(Search by state abbreviation, ie: 'by state TN')\n" +
+   "  by keyword 'keyword'............(Search by keyword, ie: 'by keyword prevention')\n" +
    "  view 'organization id#'.........(View an organization's profile, ie: 'view 128')\n" +
    "  list all .......................(List all)\n"
 
   MAIN_PROMPT = "To view an organization's profile:\n" +
    "  view 'organization id#'.........(View an organization's profile, ie: 'view 128')\n" +
    "To search again:\n" +
-   "  by name 'name goes here'........(Search by name, ie: 'find name Abolition International')\n" +
-   "  by state 'state'................(Search by state abbreviation, ie: 'find state TN')\n" +
-   "  by keyword 'keyword'............(Search by keyword, ie: 'find keyword prevention')\n" +
+   "  by name 'name goes here'........(Search by name, ie: 'by name Abolition International')\n" +
+   "  by state 'state'................(Search by state abbreviation, ie: 'by state TN')\n" +
+   "  by keyword 'keyword'............(Search by keyword, ie: 'by keyword prevention')\n" +
    "  list all .......................(List all)\n" +
    "  exit ...........................(Quit the program)\n"
 
   DETAIL_PROMPT = "To view another organization's profile:\n" +
    "  view 'organization id#'..........(View an organization's profile, ie: 'view 128')\n" +
    "To search again:\n" +
-   "  by name 'name goes here'........(Search by name, ie: 'find name Abolition International')\n" +
-   "  by state 'state'................(Search by state abbreviation, ie: 'find state TN')\n" +
-   "  by keyword 'keyword'............(Search by keyword, ie: 'find keyword prevention')\n" +
+   "  by name 'name goes here'........(Search by name, ie: 'by name Abolition International')\n" +
+   "  by state 'state'................(Search by state abbreviation, ie: 'by state TN')\n" +
+   "  by keyword 'keyword'............(Search by keyword, ie: 'by keyword prevention')\n" +
    "  list all .......................(List all)\n" +
    "  exit ...........................(Quit the program)\n"
   WRONG_INPUT = "You have entered an incorrect input, please try again."

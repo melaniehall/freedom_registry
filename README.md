@@ -38,9 +38,6 @@ Getting Started:
     3. by keyword "keyword"..............(Search by keyword)
     4. list all..........................(List all)
 
-  <strong>list all </strong><br/>
-  Returns a list of all the organizations in the Freedom Registry 2.0 (paginated for easy searching): list includes id#, name, city/state, and website (if applicable)
-
   <strong> by name "name" </strong><br/>
   Returns a list of all the organizations that contain the name entered.
 
@@ -49,6 +46,9 @@ Getting Started:
 
   <strong> by keyword "keyword"</strong><br/>
   Returns a list of all the organizations that match keyword input.
+
+  <strong>list all </strong><br/>
+  Returns a list of all the organizations in the Freedom Registry 2.0 (paginated for easy searching): list includes id#, name, and location.
 
   <strong>To see more information </strong>on an organization listed, a user can enter the id number of the organization:
   > view 312 <br/>

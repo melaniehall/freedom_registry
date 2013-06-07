@@ -27,10 +27,11 @@ Features
 
 Usage Instructions
 ------------------
-Planned usage is as follows:
+To use, run:
+"ruby freedom_registry.rb"
 
 Getting Started:
-  On load of freedom_registry, users will see a welcome screen with a brief into to the Freedom Registry and a list of commands to get started:
+  On load of freedom_registry.rb, users will see a welcome screen with a brief into to the Freedom Registry and a list of commands to get started:
 
     1. by name "name goes here"..........(Search by name)
     2. by state "state"..................(Search by state)

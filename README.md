@@ -27,8 +27,8 @@ Features
 
 Usage Instructions
 ------------------
-For initial setup/before first use, set up the registry by:
-  rake db:migrate
+For initial setup/before first use, set up the registry by:<br/>
+  rake db:migrate<br/>
   rake db:seed
 
 To use, run:

@@ -5,7 +5,7 @@ NSS-freedom_registry
 Purpose
 -------
 
-The goal of this project is to create a command line tool that integrates with the <a href="http://www.freedomregistry.org/" target="_blank">Freedom Registry</a>, allowing users to quickly search through the registry and utilize the information that is relevent to them.
+The goal of this project is to create a command line tool that integrates with the <a href="http://www.freedomregistry.org/" target="_blank">Freedom Registry</a>, allowing users to quickly search through the registry via the command line and utilize the information that is relevent to them.
 
 Project Status / TODO
 ---------------------
@@ -32,10 +32,10 @@ Planned usage is as follows:
 Getting Started:
   On load of freedom_registry, users will see a welcome screen with a brief into to the Freedom Registry and a list of commands to get started:
 
-    1. list all..........................(List all)
-    2. by name "name goes here"..........(Search by name)
-    3. by state "state"..................(Search by state)
-    4. by keyword "keyword"..............(Search by keyword)
+    1. by name "name goes here"..........(Search by name)
+    2. by state "state"..................(Search by state)
+    3. by keyword "keyword"..............(Search by keyword)
+    4. list all..........................(List all)
 
   <strong>list all </strong><br/>
   Returns a list of all the organizations in the Freedom Registry 2.0 (paginated for easy searching): list includes id#, name, city/state, and website (if applicable)

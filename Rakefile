@@ -3,6 +3,7 @@
 require 'rake'
 require 'rspec/core/rake_task'
 require_relative 'bootstrap_ar'
+require './app/models/organization.rb'
 
 RSpec::Core::RakeTask.new(:spec)
 

@@ -27,8 +27,12 @@ Features
 
 Usage Instructions
 ------------------
+For initial setup/before first use, set up the registry by:
+  rake db:migrate
+  rake db:seed
+
 To use, run:
-"ruby freedom_registry.rb"
+  "ruby freedom_registry.rb"
 
 Getting Started:
   On load of freedom_registry.rb, users will see a welcome screen with a brief into to the Freedom Registry and a list of commands to get started:
